@@ -1,0 +1,128 @@
+/* =========================================
+   1. GLOBAL RESET & THEME VARIABLES
+   ========================================= */
+:root {
+    --primary-red: #F84464;
+    --nav-bg: #333545;
+    --sub-nav-bg: #2B3148;
+    --bg-light: #f5f5f5;
+    --bg-dark: #121212;
+    --card-dark: #1f1f1f;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   2. DARK MODE LOGIC (CRITICAL FOR BUTTON)
+   ========================================= */
+/* These rules only activate when 'dark-mode' class is on body */
+body.dark-mode {
+    background-color: var(--bg-dark) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode header {
+    background-color: #1a1a1a !important; /* Slightly darker header in dark mode */
+}
+
+body.dark-mode nav {
+    background-color: #000000 !important;
+}
+
+body.dark-mode .movie-card {
+    background-color: var(--card-dark) !important;
+    color: white !important;
+}
+
+body.dark-mode aside div, 
+body.dark-mode section {
+    background-color: transparent;
+    color: white;
+}
+
+/* =========================================
+   3. LAYOUT & NAVIGATION
+   ========================================= */
+header {
+    background-color: var(--nav-bg);
+}
+
+nav {
+    background-color: var(--sub-nav-bg);
+}
+
+/* =========================================
+   4. MOVIE CARDS & HOVER
+   ========================================= */
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.poster-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+}
+
+.rating-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* =========================================
+   5. FILTERS & CHIPS
+   ========================================= */
+.filter-chip {
+    padding: 5px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    background: white;
+    color: var(--primary-red);
+    transition: 0.2s;
+}
+
+.filter-chip.active {
+    background-color: var(--primary-red) !important;
+    color: white !important;
+    border-color: var(--primary-red) !important;
+}
+
+/* =========================================
+   6. MODAL STYLING
+   ========================================= */
+/* Matches your script.js modal logic */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.modal-content {
+    background: #1f1f1f;
+    border: 1px solid #333;
+}
